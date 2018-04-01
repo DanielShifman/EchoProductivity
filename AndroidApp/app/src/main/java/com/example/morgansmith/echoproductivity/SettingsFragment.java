@@ -34,6 +34,7 @@ public class SettingsFragment extends Fragment {
     Context context;
     ArrayList<String> settings;
     ArrayAdapter<String> arrayAdapter;
+    int duration = 0;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -121,6 +122,11 @@ public class SettingsFragment extends Fragment {
     }
 
     public void incrementDuration() {
+        duration = duration+ 5;
+        if(duration == 65) duration = 0;
+        settings.set(3, "Duration: " + duration);
+        arrayAdapter.notifyDataSetChanged();
+
     }
 
     private void createSettings() {
