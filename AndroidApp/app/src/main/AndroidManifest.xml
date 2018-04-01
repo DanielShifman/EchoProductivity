@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Settings" />
+        <activity android:name=".EditNameAndNumber"></activity>
     </application>
 
 </manifest>
