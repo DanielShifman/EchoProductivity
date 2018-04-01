@@ -5,4 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
+    <ListView
+        android:id="@+id/settingsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/resetSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Reset Settings" />
 </RelativeLayout>

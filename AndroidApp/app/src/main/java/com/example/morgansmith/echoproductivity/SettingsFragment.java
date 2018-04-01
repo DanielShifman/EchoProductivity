@@ -7,8 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,8 +29,6 @@ public class SettingsFragment extends Fragment {
     File file;
     Context context;
     ArrayList<String> settings;
-    RelativeLayout relativeLayout;
-
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -48,16 +47,7 @@ public class SettingsFragment extends Fragment {
             writeSettings();
         }
 
-        relativeLayout = new RelativeLayout(getContext());
-        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        for(int i = 0; i < settings.size(); i++)
-        {
-            TextView tv=new TextView(context);
-            tv.setText(settings.get(i));
-            relativeParams.addRule(RelativeLayout.BELOW, tv.getId());
-            relativeLayout.addView(tv, relativeParams);
-        }
+
 
     }
 
@@ -65,12 +55,33 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+
+        final ListView listView = view.findViewById(R.id.settingsList);
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, settings);
+
+        Button button = view.findViewById(R.id.resetSettings);
+        View.OnClickListener buttonListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createSettings();
+                arrayAdapter.clear();
+                arrayAdapter.addAll(settings);
+                arrayAdapter.notifyDataSetChanged();
+            }
+        };
+        button.setOnClickListener(buttonListener);
+        listView.setAdapter(arrayAdapter);
+
+
+        return view;
     }
 
     private void createSettings()
     {
-        settings = new ArrayList<>(Arrays.asList("xyz", "abc", "lkjsflkfds"));
+        settings = new ArrayList<>(Arrays.asList("xyz", "abc", "dicks", "more dicks"));
         writeSettings();
     }
 
@@ -120,4 +131,7 @@ public class SettingsFragment extends Fragment {
     }
 
 
+    public void createSettings(View view) {
+        createSettings();
     }
+}
