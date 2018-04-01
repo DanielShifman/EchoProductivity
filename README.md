@@ -8,6 +8,6 @@ An app which monitors and regulates work ethic by means of customizable punishme
 
 ### Contributors
 * Morgan Smith @MorganJamesSmith
-* Austin Rye
+* Austin Rye @AustinRye
 * Francis Baccin-Smith @FrancisBaccin-Smith
 * Daniel Shifman @Danielshifman
