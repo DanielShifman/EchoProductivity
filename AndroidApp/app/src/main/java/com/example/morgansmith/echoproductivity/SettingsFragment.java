@@ -3,6 +3,7 @@ package com.example.morgansmith.echoproductivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,7 +24,9 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * This fragment includes a list of all the settings and the reset button
+ */
 public class SettingsFragment extends Fragment {
 
 
@@ -48,12 +50,10 @@ public class SettingsFragment extends Fragment {
             createSettings();
             writeSettings();
         }
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
@@ -92,32 +92,35 @@ public class SettingsFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        String name = ((Settings) getActivity()).getName();
-        String number = ((Settings) getActivity()).getNumber();
-        String message = ((Settings) getActivity()).getMessage();
 
-        if (name != null && !name.equals("")) {
-            arrayAdapter.remove(settings.get(0));
+
+        if (((Settings) getActivity()).getName() != null) {
+            String name = ((Settings) getActivity()).getName();
             settings.set(0, "Recipient: " + name);
-            arrayAdapter.insert(settings.get(0), 0);
             arrayAdapter.notifyDataSetChanged();
         }
-        if (number != null && !name.equals("")) {
-            arrayAdapter.remove(settings.get(1));
+        if (((Settings) getActivity()).getNumber() != null) {
+            String number = ((Settings) getActivity()).getNumber();
             settings.set(1, "Recipient Number: " + number);
-            arrayAdapter.insert(settings.get(1), 1);
             arrayAdapter.notifyDataSetChanged();
+
         }
-        if (message != null && !name.equals("")) {
-            arrayAdapter.remove(settings.get(2));
-            settings.set(2, "Message: : " + message);
-            arrayAdapter.insert(settings.get(2), 2);
+        if (((Settings) getActivity()).getMessage() != null) {
+            String message = ((Settings) getActivity()).getMessage();
+            settings.set(2, "Message: " + message);
             arrayAdapter.notifyDataSetChanged();
+
         }
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        writeSettings();
     }
 
     public void incrementDuration() {
-        settings.get(3);
     }
 
     private void createSettings() {

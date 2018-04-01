@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
+/**
+ * This is the settings activity where the user can configure
+ * the app to their liking
+ */
 public class Settings extends AppCompatActivity {
     String name;
     String number;
@@ -18,6 +21,10 @@ public class Settings extends AppCompatActivity {
 
     }
 
+    /**
+     * This function pulls any extras in the intent out to be used
+     * in case this activity is resumed by the EditNameAndNumber activity
+     */
     @Override
     protected void onResume() {
         super.onResume();
