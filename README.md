@@ -1,11 +1,13 @@
-You tell the amazon echo what you are curently doing.
+## Amazon Echo Work Regulator Documentation
+### Basic concept
+An app which monitors and regulates work ethic by means of customizable punishments for slacking.
+### Details
+1. Preferences specified in android companion app.
+2. StdLib API used for interaction with Amazon Echo
+3. Alexa with occasionally check-in with the user, if she is not satisfied with user's activity, she will notify the user's mother. 
 
-If you have been doing something labeled as unproductive for longer than the time you alloted for non-productive tasks the echo warns you.
-
-If you do not change your activity and alert alexa within a minute, the punishment algoritihim starts.
-
-The punishment algorithim texts a person of your choosing about your bad behaviour.
-
-There may be an android app component as well.
-
-The texts will be done using stdlib
+### Contributors
+* Morgan Smith @MorganJamesSmith
+* Austin Rye
+* Francis Baccin-Smith
+* Daniel Shifman @Danielshifman
