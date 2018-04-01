@@ -1,7 +1,7 @@
 {
   "name": "AlexaTest",
   "version": "0.0.0",
-  "description": "",
+  "description": "Hackathon Alexa Test",
   "author": "dankengineer <daniel.shifman@carleton.ca>",
   "main": "functions/__main__.js",
   "dependencies": {

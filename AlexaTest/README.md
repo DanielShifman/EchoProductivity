@@ -1,33 +1,12 @@
-# Your StdLib Alexa Skill
+### Basic concept
+An app which monitors and regulates work ethic by means of customizable punishments for slacking.
+### Details
+1. Preferences specified in android companion app.
+2. StdLib API used for interaction with Amazon Echo
+3. Alexa with occasionally check-in with the user, if she is not satisfied with user's activity, she will notify the user's mother. 
 
-This is a template for your StdLib Alexa Skill.
-
-It's easy to get started, to create a new intent simply create a file
-with the name of your intent in `./functions/intents/`.
-
-You'll see a sample `HelloWorld` intent already in there (the name is
-  matched without the `.js` file.)
-
-## Sample Intent: HelloWorld
-
-```javascript
-/**
-* @param {string} name Intent Name (Automatically Populated by Handler)
-* @param {object} slots Slot Information, {name, value}
-* @returns {any}
-*/
-module.exports = (name = '', slots = {}, callback) => {
-
-  return callback(null, `Hello World`);
-
-};
-```
-
-This intent will cause Alexa to respond with "Hello World." You can see that
-intents defined in this way receive `slots` automatically, and are executed
-with a `callback` - the first parameter is an `Error` parameter, and if provided,
-Alexa will respond with an error. Otherwise Alexa will respond with the string
-provided by the second parameter.
-
-For more information on Alexa Skills please check out
-https://developer.amazon.com/.
+### Contributors
+* Morgan Smith
+* Austin Rye
+* Francis Baccin-Smith
+* Daniel Shifman
